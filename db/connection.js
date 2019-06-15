@@ -9,10 +9,12 @@ const options = {
     useNewUrlParser: true,
   }
 
+
 mongoose.connect(url, options);
 
 
 var db = mongoose.connection;
+
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log("mongo is connected")

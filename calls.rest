@@ -1,0 +1,9 @@
+@host = http://localhost:3000
+
+### addVille
+POST {{host}}/villes
+Content-Type: application/json
+
+
+### test
+GET {{host}}/test

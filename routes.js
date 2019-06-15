@@ -1,4 +1,5 @@
 const mongoo = require("./mongoo")
+const getStuff = require("./mongoo")
 
 
 function addRoute(server){
@@ -7,8 +8,9 @@ function addRoute(server){
     server.get("/", getHome)
 }
 
-function getHome(req,res,next){
-    res.send("getHome")
+async function getHome(req,res,next){
+    const data = await getStuff()
+    res.send(data)
     next()
 }
 

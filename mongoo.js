@@ -1,7 +1,10 @@
 const mangoose = require("mongoose")
 
 function getStuff(){
-    return "gg"
+    return new Promise((res,err)=>{
+        setTimeout(()=>{res("gg2")},2000)
+    })
+
 }
 
 module.exports = getStuff

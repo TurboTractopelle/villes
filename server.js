@@ -1,5 +1,6 @@
 const initServer = require("./initServer")
 const PORT = 3000
+const db = require("./db/connection")
 
 const server = initServer()
 

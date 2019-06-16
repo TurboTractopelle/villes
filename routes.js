@@ -7,7 +7,7 @@ function addRoute(server){
 
     server.get("/", getHome)
 
-    server.post("/villes", addVille)
+    server.post("/addVilles", addVilles)
     server.get({name:"test", path:"/test"}, testFn)
 }
 
@@ -17,15 +17,15 @@ async function getHome(req,res,next){
     next()
 }
 
-function addVille(req,res,next){
-    console.log("addVille function")
-    console.log(req.body)
+async function addVilles(req,res,next){
+    console.log("addVilles function")
+    Villes.create({name:"Paris"}).then(res=>console.log(res + " gg"))
+
     next()
 }
 
 function testFn(req, res, next){
     res.send("gg")
-
 }
 
 

@@ -5,6 +5,6 @@ const villesSchema = new mongoose.Schema({
     name: String
   })
 
-  const Villes = db.model('Villes', villesSchema)
+const Villes = db.model('Villes', villesSchema)
 
-  module.exports = Villes
+module.exports = Villes

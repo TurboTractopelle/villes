@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const url = "mongodb://localhost/test"
+const url = "mongodb://localhost/villes"
 
 const options = {
     connectTimeoutMS: 5000,

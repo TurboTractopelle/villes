@@ -20,8 +20,17 @@ async function getVilles(req, res, next) {
 }
 
 async function addVilles(req, res, next) {
-	Villes.create({ name: "Paris" }).then(res => console.log(res + " gg"));
-	res.send("Ville created");
+	console.log(req.body);
+	let added = [];
+
+	req.body.forEach(async element => {
+		console.log(element);
+		await Villes.create(element);
+		added.push("a");
+	});
+	console.log(added);
+
+	res.send(added);
 	next();
 }
 
@@ -36,11 +45,10 @@ function testFn(req, res, next) {
 }
 
 function testPost(req, res, next) {
-	console.log("-- start post --");
-	console.log(req.body);
-	console.log(req.params);
-	res.send("gg post");
-	console.log("-- end post --");
+	const { name } = req.body;
+	Villes.create({ name });
+	res.send("gg posted " + name);
+
 	next();
 }
 

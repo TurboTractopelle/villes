@@ -21,20 +21,12 @@ async function getVilles(req, res, next) {
 
 async function addVilles(req, res, next) {
 	console.log(req.body);
-	let added = [];
-	console.log("1");
 
 	try {
 		await req.body.forEach(async element => {
 			await Villes.create(element);
-			added.push("a");
-			console.log("2");
-			console.log(added);
 		});
-		console.log("3");
-		console.log(added);
-
-		res.send(added);
+		res.send("added");
 		next();
 	} catch (err) {
 		console.log(err);

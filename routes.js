@@ -22,16 +22,23 @@ async function getVilles(req, res, next) {
 async function addVilles(req, res, next) {
 	console.log(req.body);
 	let added = [];
+	console.log("1");
 
-	req.body.forEach(async element => {
-		console.log(element);
-		await Villes.create(element);
-		added.push("a");
-	});
-	console.log(added);
+	try {
+		await req.body.forEach(async element => {
+			await Villes.create(element);
+			added.push("a");
+			console.log("2");
+			console.log(added);
+		});
+		console.log("3");
+		console.log(added);
 
-	res.send(added);
-	next();
+		res.send(added);
+		next();
+	} catch (err) {
+		console.log(err);
+	}
 }
 
 async function addVille(req, res, next) {

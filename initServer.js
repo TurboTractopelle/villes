@@ -1,13 +1,23 @@
-const {createServer} = require("restify")
-const addRoute = require("./routes")
+const { createServer } = require("restify");
+const addRoute = require("./routes");
+const restify = require("restify");
 
+function initServer() {
+	console.log("init server");
+	const server = createServer();
 
-function initServer(){
-    console.log("init server")
-    const server = createServer()
-    addRoute(server)
+	server.pre(restify.plugins.pre.dedupeSlashes());
+	server.pre(restify.plugins.pre.sanitizePath());
+	server.pre(restify.plugins.pre.strictQueryParams());
+	server.pre(restify.plugins.pre.userAgentConnection());
 
-    return server
+	server.use(restify.plugins.acceptParser(server.acceptable));
+	server.use(restify.plugins.queryParser({ mapParams: false }));
+	server.use(restify.plugins.jsonBodyParser({ mapParams: true }));
+
+	addRoute(server);
+
+	return server;
 }
 
-module.exports = initServer
+module.exports = initServer;

@@ -1,9 +1,28 @@
-@host = http://localhost:3000
+@host = http://localhost:5000
 
-### addVille
+### addVilles
 POST {{host}}/addVilles
 Content-Type: application/json
 
+< ./fixtures/villes.json
 
-### test
+
+### addVille
+POST {{host}}/addVille/2
+Content-Type: application/json
+
+
+
+### get villes
+GET {{host}}/villes
+
+
+### simple test GET
 GET {{host}}/test
+
+
+### simple test POST
+POST {{host}}/test/5
+Content-Type: application/json
+
+{"name":"GGGG"}

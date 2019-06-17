@@ -1,7 +1,7 @@
-const initServer = require("./initServer")
-const PORT = 3000
-const db = require("./db/connection")
+const initServer = require("./initServer");
+const PORT = 5000;
+const db = require("./db/connection");
 
-const server = initServer()
+const server = initServer();
 
-server.listen(PORT, ()=>console.log(`Listening on http://localhost:${PORT}`))
+server.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));

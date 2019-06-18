@@ -16,6 +16,9 @@ Content-Type: application/json
 ### get villes
 GET {{host}}/villes
 
+### get villes beginning with letter
+GET {{host}}/villes?letter=a
+
 
 ### simple test GET
 GET {{host}}/test

@@ -20,10 +20,6 @@ GET {{host}}/villes
 GET {{host}}/villes?letter=a
 
 
-### simple test GET
-GET {{host}}/test
-
-
 ### simple test POST
 POST {{host}}/test/5
 Content-Type: application/json

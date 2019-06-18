@@ -10,10 +10,14 @@ villesSchema.statics.search = search;
 async function search(letter = "") {
   let data;
   if (letter) {
-    data = await this.find({ name: { $regex: `^${letter}.+`, $options: "i" } });
+    data = await this.find(
+      { name: { $regex: `^${letter}.+`, $options: "i" } },
+      { name: 1 },
+      { sort: { name: 1 } }
+    );
     return data;
   }
-  data = await this.find({}, { name: 1 });
+  data = await this.find({}, { name: 1 }, { sort: { name: 1 } });
   return data;
 }
 

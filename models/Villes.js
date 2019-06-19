@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 const db = require("../db/connection");
 
 const villesSchema = new mongoose.Schema({
-  name: String
+  name: String,
+  hab:Number
 });
 
 villesSchema.statics.search = search;
@@ -12,12 +13,12 @@ async function search(letter = "") {
   if (letter) {
     data = await this.find(
       { name: { $regex: `^${letter}.+`, $options: "i" } },
-      { name: 1 },
+      { name: 1,hab:1 },
       { sort: { name: 1 } }
     );
     return data;
   }
-  data = await this.find({}, { name: 1 }, { sort: { name: 1 } });
+  data = await this.find({}, { name: 1, hab:1 }, { sort: { name: 1 } });
   return data;
 }
 

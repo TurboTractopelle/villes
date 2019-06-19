@@ -7,6 +7,7 @@ function addRoute(server) {
   server.post("/addVilles", addVilles);
   server.post("/addVille/:name", addVille);
   server.post("/test/:id", testPost);
+  server.post("/dropdb", dropdb)
 }
 
 async function getVilles(req, res, next) {
@@ -35,6 +36,13 @@ async function addVille(req, res, next) {
   console.log(req.body);
   console.log(req.params);
   next();
+}
+
+async function dropdb(req, res,next){
+  await Villes.deleteMany()
+  console.log("villes has been emptied")
+  res.send("db dropped")
+  next()
 }
 
 function testPost(req, res, next) {

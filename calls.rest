@@ -19,6 +19,8 @@ GET {{host}}/villes
 ### get villes beginning with letter
 GET {{host}}/villes?letter=a
 
+### drop db
+POST {{host}}/dropdb
 
 ### simple test POST
 POST {{host}}/test/5

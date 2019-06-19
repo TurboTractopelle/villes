@@ -1,11 +1,11 @@
 [
 	{
-		"name": "Paris"
+		"name": "Paris", "hab":"100"
 	},
 	{
-		"name": "Lyon"
+		"name": "Lyon", "hab":"50"
 	},
 	{
-		"name": "AA"
+		"name": "Brest", "hab":"5"
 	}
 ]
